@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "./form-controls/form";
 import { TextInput } from "./form-controls/text-input";
 
-function signupForm({}) {
+function SignupForm({}) {
   function handleSumbit() {}
   console.log("render signupForm");
 
@@ -22,4 +22,4 @@ function signupForm({}) {
   );
 }
 
-export { signupForm };
+export { SignupForm };

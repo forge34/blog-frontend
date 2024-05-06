@@ -1,7 +1,7 @@
 import React from "react";
 import { TextInput } from "./form-controls/text-input";
 
-function loginForm(props) {
+function LoginForm() {
   function handleSubmit(e) {}
 
   return (
@@ -9,12 +9,12 @@ function loginForm(props) {
       <form onSubmit={handleSubmit}>
         <TextInput name={"username"} label={"username"}></TextInput>
         <TextInput name={"password"} label={"password"}></TextInput>
-        <button>Login</button>
+        <button type="submit">Login</button>
       </form>
     </>
   );
 }
 
-loginForm.propTypes = {};
+LoginForm.propTypes = {};
 
-export { loginForm };
+export { LoginForm };
