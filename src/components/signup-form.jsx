@@ -1,25 +1,32 @@
 import React from "react";
-import { Form } from "./form-controls/form";
 import { TextInput } from "./form-controls/text-input";
+import { useNavigate } from "react-router-dom";
 
 function SignupForm({}) {
-  function handleSumbit() {}
-  console.log("render signupForm");
+  const navigate = useNavigate();
+
+  function handleSumbit(e) {
+    e.preventDefault();
+    navigate("/");
+  }
 
   return (
-    <form onSubmit={handleSumbit()}>
-      <TextInput name={"username"} label={"Usernam"}></TextInput>
-      <TextInput name={"firstname"} label={"Firstname"}></TextInput>
-      <TextInput name={"lastname"} label={"Lastname"}></TextInput>
-      <TextInput name={"password"} label={"Password"}></TextInput>
-      <TextInput
-        name={"confirmpassword"}
-        label={"Confirm password"}
-      ></TextInput>
+    <div>
+      <h3>Signup</h3>
+      <form onSubmit={handleSumbit}>
+        <TextInput name={"username"} label={"Usernam"}></TextInput>
+        <TextInput name={"firstname"} label={"Firstname"}></TextInput>
+        <TextInput name={"lastname"} label={"Lastname"}></TextInput>
+        <TextInput name={"password"} label={"Password"}></TextInput>
+        <TextInput
+          name={"confirmpassword"}
+          label={"Confirm password"}
+        ></TextInput>
 
-      <button>Sign up</button>
-    </form>
+        <button>Sign up</button>
+      </form>
+    </div>
   );
 }
 
-export { SignupForm };
+export default SignupForm;

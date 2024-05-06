@@ -12,7 +12,7 @@ function LoginForm() {
 
   return (
     <div>
-      <h3> Login form</h3>
+      <h3>Login</h3>
       <form onSubmit={handleSubmit}>
         <TextInput name={"username"} label={"username"}></TextInput>
         <TextInput name={"password"} label={"password"}></TextInput>
@@ -22,4 +22,4 @@ function LoginForm() {
   );
 }
 
-export { LoginForm };
+export default LoginForm;

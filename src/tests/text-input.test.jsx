@@ -1,12 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import TextInput from "../components/form-controls/text-input";
+import { TextInput } from "../components/form-controls/text-input";
 import userEvent from "@testing-library/user-event";
 
 describe("", () => {
   it("Element is in the document", () => {
-    render(
-      <TextInput name="username" label="username"></TextInput>,
-    );
+    render(<TextInput name="username" label="username"></TextInput>);
 
     expect(screen.getByLabelText("username")).toBeInTheDocument();
   });
