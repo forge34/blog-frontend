@@ -1,5 +1,4 @@
 import React from "react";
-import { Form } from "./form-controls/form";
 import { TextInput } from "./form-controls/text-input";
 
 function loginForm(props) {
@@ -7,10 +6,11 @@ function loginForm(props) {
 
   return (
     <>
-      <Form handleSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <TextInput name={"username"} label={"username"}></TextInput>
         <TextInput name={"password"} label={"password"}></TextInput>
-      </Form>
+        <button>Login</button>
+      </form>
     </>
   );
 }

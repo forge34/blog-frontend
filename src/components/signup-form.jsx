@@ -5,8 +5,9 @@ import { TextInput } from "./form-controls/text-input";
 function signupForm({}) {
   function handleSumbit() {}
   console.log("render signupForm");
+
   return (
-    <Form handleSubmit={handleSumbit}>
+    <form onSubmit={handleSumbit()}>
       <TextInput name={"username"} label={"Usernam"}></TextInput>
       <TextInput name={"firstname"} label={"Firstname"}></TextInput>
       <TextInput name={"lastname"} label={"Lastname"}></TextInput>
@@ -15,7 +16,9 @@ function signupForm({}) {
         name={"confirmpassword"}
         label={"Confirm password"}
       ></TextInput>
-    </Form>
+
+      <button>Sign up</button>
+    </form>
   );
 }
 
