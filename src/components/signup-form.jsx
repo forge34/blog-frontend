@@ -5,8 +5,22 @@ import { useNavigate } from "react-router-dom";
 function SignupForm({}) {
   const navigate = useNavigate();
 
-  function handleSumbit(e) {
+  async function handleSumbit(e) {
     e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.target).entries());
+
+    const req = await fetch("http://localhost:3000/signup", {
+      method: "POST",
+      mode: "cors",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const res = await req.json();
+    console.log(res);
     navigate("/");
   }
 
@@ -15,13 +29,21 @@ function SignupForm({}) {
       <h3>Signup</h3>
       <form onSubmit={handleSumbit}>
         <TextInput name={"username"} label={"Usernam"}></TextInput>
-        <TextInput name={"firstname"} label={"Firstname"}></TextInput>
-        <TextInput name={"lastname"} label={"Lastname"}></TextInput>
-        <TextInput name={"password"} label={"Password"}></TextInput>
         <TextInput
-          name={"confirmpassword"}
-          label={"Confirm password"}
+          name={"password"}
+          password={true}
+          label={"Password"}
         ></TextInput>
+
+        <TextInput
+          name={"confirmPassword"}
+          label={"Confirm password"}
+          password={true}
+        ></TextInput>
+        <label>
+          {"Admin?"}
+          <input type="checkbox" name="isAdmin"></input>
+        </label>
 
         <button>Sign up</button>
       </form>

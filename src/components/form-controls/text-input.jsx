@@ -1,7 +1,12 @@
 import propTypes from "prop-types";
 import { useState } from "react";
 
-const TextInput = ({ name, label, handleChange = () => {} }) => {
+const TextInput = ({
+  name,
+  label,
+  handleChange = () => {},
+  password = false,
+}) => {
   const [value, setValue] = useState("");
 
   return (
@@ -11,6 +16,7 @@ const TextInput = ({ name, label, handleChange = () => {} }) => {
         <input
           name={name}
           value={value}
+          type={password ? "password" : "text"}
           onChange={(e) => {
             handleChange(e);
             setValue(e.target.value);
@@ -25,6 +31,7 @@ TextInput.propTypes = {
   name: propTypes.string,
   label: propTypes.string,
   handleChange: propTypes.func,
+  password: propTypes.bool,
 };
 
 export { TextInput };
