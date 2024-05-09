@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Header from "./header";
 
 export default function App() {
   return (
-    <>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup </Link>
+    <div>
+      <Header loggedIn={false}></Header>
       <Outlet></Outlet>
-    </>
+    </div>
   );
 }

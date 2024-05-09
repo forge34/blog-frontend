@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput } from "./form-controls/text-input";
+import { TextInput } from "../form-controls/text-input";
 import { useNavigate } from "react-router-dom";
 
 function SignupForm({}) {
