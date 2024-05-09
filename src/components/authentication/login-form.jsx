@@ -9,7 +9,7 @@ function LoginForm() {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    const req = await fetch("http://localhost:3000/login", {
+    const req = await fetch("http://localhost:3000/api/login", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify({

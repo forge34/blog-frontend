@@ -2,8 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./app";
 import LoginForm from "./components/authentication/login-form";
 import SignupForm from "./components/authentication/signup-form";
-import { Navigate } from "react-router-dom";
+import { Navigate, json } from "react-router-dom";
 import Home from "./home";
+import AllPosts from "./components/blog/all-posts";
 
 const routes = createBrowserRouter([
   {
@@ -14,13 +15,30 @@ const routes = createBrowserRouter([
       <App></App>
     ),
     children: [
-      { path: "/login", element: <LoginForm></LoginForm> },
-      { path: "/signup", element: <SignupForm></SignupForm> },
+      { path: "login", element: <LoginForm></LoginForm> },
+      { path: "signup", element: <SignupForm></SignupForm> },
     ],
   },
   {
     path: "/home",
     element: <Home></Home>,
+    children: [
+      {
+        path: "posts",
+        loader: () => {
+          const data = fetch("http://localhost:3000/api/posts", {
+            mode: "cors",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+          });
+
+          return data;
+        },
+        element: <AllPosts></AllPosts>,
+      },
+      { path: "profile", element: <h1>Yet to be implemented </h1> },
+    ],
   },
 ]);
 

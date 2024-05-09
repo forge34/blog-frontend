@@ -8,12 +8,12 @@ function Header({ loggedIn = false }) {
       {loggedIn ? (
         <>
           <Link to="/home">Home</Link>
-          <Link to="/profile">Profile</Link>
+          <Link to="profile">Profile</Link>
         </>
       ) : (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup </Link>
+          <Link to="login">Login</Link>
+          <Link to="signup">Signup </Link>
         </>
       )}
     </div>
