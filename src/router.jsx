@@ -5,6 +5,7 @@ import SignupForm from "./components/authentication/signup-form";
 import { Navigate, json } from "react-router-dom";
 import Home from "./home";
 import AllPosts from "./components/blog/all-posts";
+import PostPage from "./components/blog/post-page";
 
 const routes = createBrowserRouter([
   {
@@ -36,6 +37,23 @@ const routes = createBrowserRouter([
           return data;
         },
         element: <AllPosts></AllPosts>,
+      },
+      {
+        path: "posts/:postid",
+        loader: ({ params }) => {
+          const data = fetch(
+            `http://localhost:3000/api/posts/${params.postid}`,
+            {
+              mode: "cors",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+              },
+            },
+          );
+
+          return data;
+        },
+        element: <PostPage></PostPage>,
       },
       { path: "profile", element: <h1>Yet to be implemented </h1> },
     ],
