@@ -1,5 +1,5 @@
 import React from "react";
-import { TextInput } from "../form-controls/text-input";
+import { TextInput } from "../components/form-controls/text-input";
 import { useNavigate } from "react-router-dom";
 
 function SignupForm({}) {
@@ -15,7 +15,7 @@ function SignupForm({}) {
       mode: "cors",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "Indexlication/json",
       },
     });
 

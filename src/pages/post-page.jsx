@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import Post from "./post";
+import Post from "../components/blog/post";
 
 function PostPage() {
   const data = useLoaderData();

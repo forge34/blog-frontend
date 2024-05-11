@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TextInput } from "../form-controls/text-input";
+import { TextInput } from "../components/form-controls/text-input";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -17,8 +17,8 @@ function LoginForm() {
         password: data.get("password"),
       }),
       headers: {
-        "Content-Type": "application/json",
-        // "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "Indexlication/json",
+        // "Content-Type": "Indexlication/x-www-form-urlencoded",
       },
     });
     const res = await req.json();

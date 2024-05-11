@@ -1,5 +1,5 @@
-import Post from "./components/blog/post";
-import Header from "./header";
+import Post from "../components/blog/post";
+import Header from "../header";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 export default function Home() {

@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./app";
-import LoginForm from "./components/authentication/login-form";
-import SignupForm from "./components/authentication/signup-form";
-import { Navigate, json } from "react-router-dom";
-import Home from "./home";
-import AllPosts from "./components/blog/all-posts";
-import PostPage from "./components/blog/post-page";
+import Index from "./pages/index";
+import LoginForm from "./pages/login-page";
+import SignupForm from "./pages/signup-page";
+import { Navigate } from "react-router-dom";
+import Home from "./pages/home";
+import AllPosts from "./pages/all-posts";
+import PostPage from "./pages/post-page";
 
 const routes = createBrowserRouter([
   {
@@ -13,7 +13,7 @@ const routes = createBrowserRouter([
     element: localStorage.getItem("jwt") ? (
       <Navigate to="/home" replace={true}></Navigate>
     ) : (
-      <App></App>
+      <Index></Index>
     ),
     children: [
       { path: "login", element: <LoginForm></LoginForm> },
@@ -48,7 +48,7 @@ const routes = createBrowserRouter([
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("jwt")}`,
               },
-            },
+            }
           );
 
           return data;
