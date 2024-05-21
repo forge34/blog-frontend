@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header loggedIn={true}></Header>
+      <Header></Header>
       {location.pathname === "/home" ? (
         <>
           <Link to="posts" relative="path">

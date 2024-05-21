@@ -5,7 +5,7 @@ import Header from "../header";
 export default function Index() {
   return (
     <div>
-      <Header loggedIn={false}></Header>
+      <Header></Header>
       <Outlet></Outlet>
     </div>
   );

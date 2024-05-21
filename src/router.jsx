@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import Home from "./pages/home";
 import AllPosts from "./pages/all-posts";
 import PostPage from "./pages/post-page";
+import * as PostLoader from "./utils/loaders/post-loader";
 
 const routes = createBrowserRouter([
   {
@@ -26,33 +27,12 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "posts",
-        loader: () => {
-          const data = fetch("http://localhost:3000/api/posts", {
-            mode: "cors",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-            },
-          });
-
-          return data;
-        },
+        loader: PostLoader.fetchPostAll,
         element: <AllPosts></AllPosts>,
       },
       {
         path: "posts/:postid",
-        loader: ({ params }) => {
-          const data = fetch(
-            `http://localhost:3000/api/posts/${params.postid}`,
-            {
-              mode: "cors",
-              headers: {
-                Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-              },
-            }
-          );
-
-          return data;
-        },
+        loader: PostLoader.fetchPostOne,
         element: <PostPage></PostPage>,
       },
       { path: "profile", element: <h1>Yet to be implemented </h1> },
