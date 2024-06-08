@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Index from "./pages/index";
 import LoginForm from "./pages/login-page";
 import SignupForm from "./pages/signup-page";
 import { Navigate } from "react-router-dom";
@@ -11,19 +10,21 @@ import * as PostLoader from "./utils/loaders/post-loader";
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: localStorage.getItem("jwt") ? (
-      <Navigate to="/home" replace={true}></Navigate>
-    ) : (
-      <Index></Index>
-    ),
-    children: [
-      { path: "login", element: <LoginForm></LoginForm> },
-      { path: "signup", element: <SignupForm></SignupForm> },
-    ],
+    element: <Navigate to="/home" replace={true}></Navigate>
   },
+
+  {
+    path: "/login", element: <LoginForm></LoginForm>
+  },
+
+  {
+    path: "/signup", element: <SignupForm></SignupForm>
+  },
+
   {
     path: "/home",
     element: <Home></Home>,
+    loader: PostLoader.fetchPostAll,
     children: [
       {
         path: "posts",
@@ -35,7 +36,6 @@ const routes = createBrowserRouter([
         loader: PostLoader.fetchPostOne,
         element: <PostPage></PostPage>,
       },
-      { path: "profile", element: <h1>Yet to be implemented </h1> },
     ],
   },
 ]);
