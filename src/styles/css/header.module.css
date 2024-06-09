@@ -1,13 +1,37 @@
 .container {
   display: flex;
+  background-color: #bebebe;
+  padding: 0.75em 0.25em;
+}
+.container :nth-child(3) {
+  margin-left: auto;
 }
 .container a {
   text-decoration: none;
   color: inherit;
 }
 
-.search-bar {
+.search {
   width: 50ch;
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 20%;
+  padding: 0 0.3em;
+}
+
+.login {
+  padding: 0.5em 1em;
+  background-color: white;
+  border-radius: 7px;
+  background-color: #514ec1;
+}
+
+.signup {
+  padding: 0.5em 1em;
+  background-color: white;
+  border-radius: 7px;
+  background-color: #db999a;
+  margin-left: 2em;
 }
 
 /*# sourceMappingURL=header.module.css.map */

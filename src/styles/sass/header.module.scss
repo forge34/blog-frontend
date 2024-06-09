@@ -1,11 +1,36 @@
+@use "variables";
+@use "utils";
+
 .container {
   display: flex;
+  background-color: variables.$darker-bg;
+  padding: 0.75em 0.25em;
+
+  :nth-child(3) {
+    margin-left: auto;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
   }
 }
 
-.search-bar {
+.search {
   width: 50ch;
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 20%;
+  padding: 0 0.3em;
+}
+
+.login {
+  @include utils.btn;
+  background-color: variables.$primary;
+}
+
+.signup {
+  @include utils.btn;
+  background-color: variables.$secondary;
+  margin-left: 2em;
 }

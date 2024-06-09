@@ -16,7 +16,6 @@ function LoginForm() {
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "Application/json",
-        // "Content-Type": "Indexlication/x-www-form-urlencoded",
       },
     });
     const res = await req.json();
