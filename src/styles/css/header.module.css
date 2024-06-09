@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+.container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-bar {
+  width: 50ch;
+}
+
+/*# sourceMappingURL=header.module.css.map */
