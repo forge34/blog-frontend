@@ -10,18 +10,18 @@ function SignupForm({}) {
 
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    const req = await fetch("http://localhost:3000/signup", {
+    const req = await fetch("http://localhost:3000/api/signup", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "Indexlication/json",
+        "Content-Type": "application/json",
       },
     });
 
     const res = await req.json();
     console.log(res);
-    navigate("/");
+    // navigate("/");
   }
 
   return (

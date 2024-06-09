@@ -1,28 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styles from "../../styles/css/header.module.css";
 
-function Header({ loggedIn = false }) {
+function Header({}) {
   return (
-    <div className="header">
-      {loggedIn ? (
+    <div className={styles.container}>
+      {localStorage.getItem("jwt") ? (
         <>
+          <h2 className="title">Forge Blog API</h2>
+
+          <input type="search" className="search-bar"></input>
           <Link to="/home">
             <h3>Home</h3>
-          </Link>
-          <h2>Forge BLog API</h2>
-          <Link to="profile">
-            <h3>Profile</h3>
           </Link>
         </>
       ) : (
         <>
-          <Link to="login">
+          <h1>Forge BLog API</h1>
+          <Link to="/login">
             <h3>Login</h3>
           </Link>
-          <h1>Forge BLog API</h1>
-          <Link to="signup">
-            <h3>Signup</h3>
+          <Link to="/signup">
+            <h3>Create Account</h3>
           </Link>
         </>
       )}
@@ -30,8 +30,6 @@ function Header({ loggedIn = false }) {
   );
 }
 
-Header.propTypes = {
-  loggedIn: PropTypes.bool,
-};
+Header.propTypes = {};
 
 export default Header;

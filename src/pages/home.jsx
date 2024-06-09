@@ -9,7 +9,7 @@ export default function Home() {
 
 
   return (<>
-    <Header logg></Header>
+    <Header ></Header>
     <div>
       {location.pathname === "/home" ? (
         <>

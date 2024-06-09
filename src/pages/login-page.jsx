@@ -8,16 +8,14 @@ function LoginForm() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const data = new FormData(e.target);
+    const data = Object.fromEntries(new FormData(e.target).entries());
+
     const req = await fetch("http://localhost:3000/api/login", {
       method: "POST",
       mode: "cors",
-      body: JSON.stringify({
-        username: data.get("username"),
-        password: data.get("password"),
-      }),
+      body: JSON.stringify(data),
       headers: {
-        "Content-Type": "Indexlication/json",
+        "Content-Type": "Application/json",
         // "Content-Type": "Indexlication/x-www-form-urlencoded",
       },
     });
