@@ -1,0 +1,54 @@
+@use "variables";
+@use "utils";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 0.75em;
+  margin-top: 2em;
+  max-width: 350px;
+  max-height: 500px;
+
+  h2 {
+    margin-bottom: 0.5em;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cardText {
+  font-weight: 300;
+  white-space: break-spaces;
+  margin-bottom: 1em;
+
+  &::after {
+    content: "...";
+  }
+}
+
+.cardInfo {
+  display: flex;
+  margin: 0.5em 0;
+  font-weight: lighter;
+
+  :nth-child(1) {
+    margin-right: 0.5em;
+  }
+}
+
+.cardBtn {
+  @include utils.btn(1.5em, 1.2rem);
+  @include utils.btn-transition(variables.$primary);
+  align-self: center;
+  margin-top: auto;
+}

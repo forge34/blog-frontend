@@ -1,7 +1,9 @@
 .container {
   display: flex;
-  background-color: #bebebe;
   padding: 0.75em 0.25em;
+}
+.container:not(:nth-child(1)) {
+  color: #070510;
 }
 .container :nth-child(3) {
   margin-left: auto;
@@ -23,6 +25,14 @@
   padding: 0.5em 1em;
   background-color: white;
   border-radius: 7px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out 0s;
+  border-color: #514ec1;
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
+}
+.login:hover {
   background-color: #514ec1;
 }
 
@@ -30,8 +40,16 @@
   padding: 0.5em 1em;
   background-color: white;
   border-radius: 7px;
-  background-color: #db999a;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out 0s;
+  border-color: #db999a;
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
   margin-left: 2em;
+}
+.signup:hover {
+  background-color: #db999a;
 }
 
 /*# sourceMappingURL=header.module.css.map */

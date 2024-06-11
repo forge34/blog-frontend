@@ -1,5 +1,28 @@
 @use "variables";
+
+@font-face {
+  font-family:
+    Ubuntu,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+
+  src: url("../../assets/fonts/UbuntuFont/Ubuntu-Regular.ttf");
+}
+
 * {
   padding: 0;
   margin: 0;
+  font-family: Ubuntu;
+}
+
+body > #root {
+  height: 100vh;
 }
