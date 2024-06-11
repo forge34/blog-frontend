@@ -37,3 +37,15 @@
   @include utils.btn-transition(variables.$secondary);
   margin-left: 2em;
 }
+
+.home {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$primary);
+}
+
+.createPost,
+.logout {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$secondary);
+  margin-left: 0.5em;
+}

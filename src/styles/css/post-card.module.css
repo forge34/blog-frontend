@@ -46,7 +46,7 @@
   border-radius: 7px;
   font-size: 1.2rem;
   transition: background-color 0.3s ease-in-out 0s;
-  border-color: #514ec1;
+  border-color: #cca66d;
   border-style: solid;
   border-width: 1px;
   background-color: transparent;
@@ -54,7 +54,7 @@
   margin-top: auto;
 }
 .cardBtn:hover {
-  background-color: #514ec1;
+  background-color: #cca66d;
 }
 
 /*# sourceMappingURL=post-card.module.css.map */

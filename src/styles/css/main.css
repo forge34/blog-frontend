@@ -10,6 +10,32 @@
 
 body > #root {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+}
+.text-input label {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.text-input input {
+  background-color: white;
+  padding: 0.05em;
+  border-radius: 5px;
+  font-size: inherit;
+  max-width: 50ch;
+}
+
+.checkbox {
+  margin: 0.75em 0;
+}
+.checkbox :nth-child(1) {
+  margin-right: 0.25em;
 }
 
 /*# sourceMappingURL=main.css.map */

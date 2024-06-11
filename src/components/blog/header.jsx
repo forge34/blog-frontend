@@ -9,15 +9,30 @@ function Header({}) {
       {localStorage.getItem("jwt") ? (
         <>
           <h2 className="title">Forge Blog API</h2>
-          <input type="search" placeholder="Search..." className={styles.search}></input>
-          <Link to="/home">
+          <input
+            type="search"
+            placeholder="Search..."
+            className={styles.search}
+          ></input>
+          <Link className={styles.home} to="/home">
             <h3>Home</h3>
+          </Link>
+          <Link className={styles.createPost} to="/posts/create_post">
+            <h3>Create Post</h3>
+          </Link>
+
+          <Link className={styles.logout} to="/logout">
+            <h3>Logout</h3>
           </Link>
         </>
       ) : (
         <>
           <h1>Forge Blog </h1>
-          <input type="search" className={styles.search} placeholder="Search..."></input>
+          <input
+            type="search"
+            className={styles.search}
+            placeholder="Search..."
+          ></input>
           <Link className={styles.login} to="/login">
             <h3>Login</h3>
           </Link>

@@ -10,19 +10,17 @@ const TextInput = ({
   const [value, setValue] = useState("");
 
   return (
-    <div>
-      <label>
-        {label}
-        <input
-          name={name}
-          value={value}
-          type={password ? "password" : "text"}
-          onChange={(e) => {
-            handleChange(e);
-            setValue(e.target.value);
-          }}
-        ></input>
-      </label>
+    <div className="text-input">
+      <label htmlFor={name}>{label}</label>
+      <input
+        name={name}
+        value={value}
+        type={password ? "password" : "text"}
+        onChange={(e) => {
+          handleChange(e);
+          setValue(e.target.value);
+        }}
+      ></input>
     </div>
   );
 };

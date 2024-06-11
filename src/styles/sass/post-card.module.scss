@@ -48,7 +48,7 @@
 
 .cardBtn {
   @include utils.btn(1.5em, 1.2rem);
-  @include utils.btn-transition(variables.$primary);
+  @include utils.btn-transition(variables.$accent);
   align-self: center;
   margin-top: auto;
 }

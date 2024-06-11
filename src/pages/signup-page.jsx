@@ -1,6 +1,8 @@
 import React from "react";
 import { TextInput } from "../components/form-controls/text-input";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/css/form.module.css";
+import Checkbox from "../components/form-controls/checkbox";
 
 function SignupForm({}) {
   const navigate = useNavigate();
@@ -25,10 +27,10 @@ function SignupForm({}) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h3>Signup</h3>
       <form onSubmit={handleSumbit}>
-        <TextInput name={"username"} label={"Usernam"}></TextInput>
+        <TextInput name={"username"} label={"Username"}></TextInput>
         <TextInput
           name={"password"}
           password={true}
@@ -40,12 +42,8 @@ function SignupForm({}) {
           label={"Confirm password"}
           password={true}
         ></TextInput>
-        <label>
-          {"Admin?"}
-          <input type="checkbox" name="isAdmin"></input>
-        </label>
-
-        <button>Sign up</button>
+        <Checkbox label={"is Admin?"} name={"isAdmin"}></Checkbox>
+        <button className={styles.btn}>Sign up</button>
       </form>
     </div>
   );
