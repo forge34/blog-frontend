@@ -1,6 +1,8 @@
 import React from "react";
 import { TextInput } from "../components/form-controls/text-input";
 import { useNavigate } from "react-router-dom";
+import styles from "../styles/css/form.module.css";
+import Checkbox from "../components/form-controls/checkbox";
 
 function SignupForm({}) {
   const navigate = useNavigate();
@@ -10,25 +12,25 @@ function SignupForm({}) {
 
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    const req = await fetch("http://localhost:3000/signup", {
+    const req = await fetch("http://localhost:3000/api/signup", {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "Indexlication/json",
+        "Content-Type": "application/json",
       },
     });
 
     const res = await req.json();
     console.log(res);
-    navigate("/");
+    // navigate("/");
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h3>Signup</h3>
       <form onSubmit={handleSumbit}>
-        <TextInput name={"username"} label={"Usernam"}></TextInput>
+        <TextInput name={"username"} label={"Username"}></TextInput>
         <TextInput
           name={"password"}
           password={true}
@@ -40,12 +42,8 @@ function SignupForm({}) {
           label={"Confirm password"}
           password={true}
         ></TextInput>
-        <label>
-          {"Admin?"}
-          <input type="checkbox" name="isAdmin"></input>
-        </label>
-
-        <button>Sign up</button>
+        <Checkbox label={"is Admin?"} name={"isAdmin"}></Checkbox>
+        <button className={styles.btn}>Sign up</button>
       </form>
     </div>
   );

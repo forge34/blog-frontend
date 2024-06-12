@@ -1,0 +1,28 @@
+@use "variables";
+@use "utils";
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 15%;
+  align-self: center;
+  padding: 2em;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 7px;
+
+  max-width: fit-content;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.btn {
+  @include utils.btn(0.8em, 1.2rem);
+  @include utils.btn-transition(variables.$accent);
+  margin-top: 1em;
+}

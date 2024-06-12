@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  color: #070510;
+  background-color: #cacaca;
+  height: 100%;
+}
+.container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 1em;
+  align-self: center;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 2em;
+  justify-content: space-evenly;
+}
+
+/*# sourceMappingURL=home.module.css.map */

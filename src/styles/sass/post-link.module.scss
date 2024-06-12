@@ -1,0 +1,28 @@
+@use "variables";
+@use "utils";
+
+.container {
+  display: flex;
+  background-color: white;
+  padding: 0.5em;
+  margin: 1em 0;
+
+  h3 {
+    font-size: x-large;
+  }
+}
+
+.info {
+  display: flex;
+  font-weight: lighter;
+
+  font-size: small;
+  :nth-child(1) {
+    margin-right: 0.5em;
+  }
+}
+.btn {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$primary);
+  margin-left: auto;
+}

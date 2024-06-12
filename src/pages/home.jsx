@@ -1,35 +1,41 @@
-import Post from "../components/blog/post";
-import Header from "../header";
+import Header from "../components/blog/header";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import PostCard from "../components/blog/post-card";
+import { useLoaderData } from "react-router-dom";
+import styles from "../styles/css/home.module.css";
 
 export default function Home() {
   const location = useLocation();
+  const data = useLoaderData();
 
   return (
-    <div>
+    <>
       <Header></Header>
       {location.pathname === "/home" ? (
-        <>
-          <Link to="posts" relative="path">
+        <div className={styles.container}>
+          <Link to="posts" className={styles.title} relative="path">
             See all posts
           </Link>
-          <Post
-            title="First post"
-            author="forge"
-            date="09/05/2024"
-            body="Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
-          ></Post>
-          <Post
-            title="First post"
-            author="forge"
-            date="09/05/2024"
-            body="Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
-          ></Post>
-          ,
-        </>
+          <div className={styles.cardContainer}>
+            {data.map((e, i) => {
+              return (
+                i < 3 && (
+                  <PostCard
+                    title={e.title}
+                    id={e._id}
+                    author={e.author.username}
+                    key={e._id}
+                    body={e.body}
+                    date={e.date}
+                  ></PostCard>
+                )
+              );
+            })}
+          </div>
+        </div>
       ) : (
         <Outlet></Outlet>
       )}
-    </div>
+    </>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Post({ title, body, author, date, inlinePost = false }) {
+function Post({ title, body, author, date }) {
   return (
-    <div className={inlinePost ? "inline-post" : "post"}>
+    <div >
       <h2>{title}</h2>
 
       <div>
@@ -20,7 +20,6 @@ Post.propTypes = {
   body: PropTypes.string,
   author: PropTypes.string,
   date: PropTypes.string,
-  inlinePost: PropTypes.string,
 };
 
 export default Post;

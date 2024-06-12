@@ -1,0 +1,17 @@
+@mixin btn($width: 1em, $font-size: 1rem) {
+  padding: 0.5em $width;
+  background-color: white;
+  border-radius: 7px;
+  font-size: $font-size;
+}
+
+@mixin btn-transition($color) {
+  transition: background-color 0.3s ease-in-out 0s;
+  border-color: $color;
+  border-style: solid;
+  border-width: 1px;
+  background-color: transparent;
+  &:hover {
+    background-color: $color;
+  }
+}

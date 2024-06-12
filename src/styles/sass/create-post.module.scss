@@ -1,0 +1,22 @@
+@use "utils";
+@use "variables";
+
+#postForm {
+  height: 100%;
+}
+.container {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  padding: 1em;
+  height: 100%;
+}
+
+#textArea {
+}
+
+.btn {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$primary);
+  align-self: center;
+}

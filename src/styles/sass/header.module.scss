@@ -1,0 +1,51 @@
+@use "variables";
+@use "utils";
+
+.container {
+  display: flex;
+  padding: 0.75em 0.25em;
+
+  &:not(:nth-child(1)) {
+    color: variables.$text;
+  }
+
+  :nth-child(3) {
+    margin-left: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.search {
+  width: 50ch;
+  border-radius: 10px;
+  border-width: 1px;
+  margin-left: 20%;
+  padding: 0 0.3em;
+}
+
+.login {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$primary);
+}
+
+.signup {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$secondary);
+  margin-left: 2em;
+}
+
+.home {
+  @include utils.btn;
+  background-color: variables.$primary;
+}
+
+.createPost,
+.logout {
+  @include utils.btn;
+  @include utils.btn-transition(variables.$secondary);
+  margin-left: 0.5em;
+}
