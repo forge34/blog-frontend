@@ -57,13 +57,6 @@
   background-color: white;
   border-radius: 7px;
   font-size: 1rem;
-  transition: background-color 0.3s ease-in-out 0s;
-  border-color: #514ec1;
-  border-style: solid;
-  border-width: 1px;
-  background-color: transparent;
-}
-.home:hover {
   background-color: #514ec1;
 }
 

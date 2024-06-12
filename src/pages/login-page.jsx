@@ -10,15 +10,16 @@ function LoginForm() {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(e.target).entries());
-
-    const req = await fetch("http://localhost:3000/api/login", {
+    const options = {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "Application/json",
       },
-    });
+    };
+
+    const req = await fetch("http://localhost:3000/api/login", options);
     const res = await req.json();
 
     // console.log(res.userId,res.token)

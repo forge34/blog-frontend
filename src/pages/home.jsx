@@ -11,33 +11,31 @@ export default function Home() {
   return (
     <>
       <Header></Header>
-      <div className={styles.container}>
-        {location.pathname === "/home" ? (
-          <>
-            <Link to="posts" className={styles.title} relative="path">
-              See all posts
-            </Link>
-            <div className={styles.cardContainer}>
-              {data.map((e, i) => {
-                return (
-                  i < 3 && (
-                    <PostCard
-                      title={e.title}
-                      id={e._id}
-                      author={e.author.username}
-                      key={e._id}
-                      body={e.body}
-                      date={e.date}
-                    ></PostCard>
-                  )
-                );
-              })}
-            </div>
-          </>
-        ) : (
-          <Outlet></Outlet>
-        )}
-      </div>
+      {location.pathname === "/home" ? (
+        <div className={styles.container}>
+          <Link to="posts" className={styles.title} relative="path">
+            See all posts
+          </Link>
+          <div className={styles.cardContainer}>
+            {data.map((e, i) => {
+              return (
+                i < 3 && (
+                  <PostCard
+                    title={e.title}
+                    id={e._id}
+                    author={e.author.username}
+                    key={e._id}
+                    body={e.body}
+                    date={e.date}
+                  ></PostCard>
+                )
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <Outlet></Outlet>
+      )}
     </>
   );
 }

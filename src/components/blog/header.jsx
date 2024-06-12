@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styles from "../../styles/css/header.module.css";
 
@@ -17,7 +16,7 @@ function Header({}) {
           <Link className={styles.home} to="/home">
             <h3>Home</h3>
           </Link>
-          <Link className={styles.createPost} to="/posts/create_post">
+          <Link className={styles.createPost} to="posts/create">
             <h3>Create Post</h3>
           </Link>
 

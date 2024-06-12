@@ -13,6 +13,7 @@ const TextInput = ({
     <div className="text-input">
       <label htmlFor={name}>{label}</label>
       <input
+        id={name}
         name={name}
         value={value}
         type={password ? "password" : "text"}

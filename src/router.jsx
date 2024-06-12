@@ -6,19 +6,22 @@ import Home from "./pages/home";
 import AllPosts from "./pages/all-posts";
 import PostPage from "./pages/post-page";
 import * as PostLoader from "./utils/loaders/post-loader";
+import CreatePost from "./pages/create-post";
 
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/home" replace={true}></Navigate>
+    element: <Navigate to="/home" replace={true}></Navigate>,
   },
 
   {
-    path: "/login", element: <LoginForm></LoginForm>
+    path: "/login",
+    element: <LoginForm></LoginForm>,
   },
 
   {
-    path: "/signup", element: <SignupForm></SignupForm>
+    path: "/signup",
+    element: <SignupForm></SignupForm>,
   },
 
   {
@@ -30,6 +33,10 @@ const routes = createBrowserRouter([
         path: "posts",
         loader: PostLoader.fetchPostAll,
         element: <AllPosts></AllPosts>,
+      },
+      {
+        path: "posts/create",
+        element: <CreatePost></CreatePost>,
       },
       {
         path: "posts/:postid",

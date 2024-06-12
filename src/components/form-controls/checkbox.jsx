@@ -5,7 +5,7 @@ function Checkbox({ name, label }) {
   return (
     <div className="checkbox">
       <label htmlFor={name}>{label}</label>
-      <input type="checkbox" name={name}></input>
+      <input type="checkbox" name={name} id={name}></input>
     </div>
   );
 }

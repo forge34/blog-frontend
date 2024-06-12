@@ -40,7 +40,7 @@
 
 .home {
   @include utils.btn;
-  @include utils.btn-transition(variables.$primary);
+  background-color: variables.$primary;
 }
 
 .createPost,
