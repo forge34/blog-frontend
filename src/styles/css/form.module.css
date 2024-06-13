@@ -20,6 +20,7 @@
   padding: 0.5em 0.8em;
   background-color: white;
   border-radius: 7px;
+  border-style: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease-in-out 0s;
   border-color: #cca66d;
@@ -27,6 +28,9 @@
   border-width: 1px;
   background-color: transparent;
   margin-top: 1em;
+}
+.btn:hover {
+  opacity: 80%;
 }
 .btn:hover {
   background-color: #cca66d;

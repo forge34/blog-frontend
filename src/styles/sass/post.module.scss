@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 1.5em;
+}
+
+.markdown > * {
+  all: revert;
+}

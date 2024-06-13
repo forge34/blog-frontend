@@ -2,7 +2,10 @@
   display: flex;
   background-color: white;
   padding: 0.5em;
-  margin: 1em 0;
+  margin: 0.1em 0;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
 }
 .container h3 {
   font-size: x-large;
@@ -21,6 +24,7 @@
   padding: 0.5em 1em;
   background-color: white;
   border-radius: 7px;
+  border-style: none;
   font-size: 1rem;
   transition: background-color 0.3s ease-in-out 0s;
   border-color: #514ec1;
@@ -28,6 +32,9 @@
   border-width: 1px;
   background-color: transparent;
   margin-left: auto;
+}
+.btn:hover {
+  opacity: 80%;
 }
 .btn:hover {
   background-color: #514ec1;

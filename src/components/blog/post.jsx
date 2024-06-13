@@ -1,16 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "../../styles/css/post.module.css";
+import MarkdownPreview from "@uiw/react-markdown-preview";
 
 function Post({ title, body, author, date }) {
+  console.log(body);
   return (
-    <div >
-      <h2>{title}</h2>
-
-      <div>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{title}</h1>
+      <div className={styles.info}>
         <p>{author}</p>
         <p>{date}</p>
       </div>
-      <p>{body}</p>
+      <div data-color-mode="light" className={styles.markdownPreview}>
+        <MarkdownPreview source={body}></MarkdownPreview>
+      </div>
     </div>
   );
 }

@@ -44,6 +44,7 @@
   padding: 0.5em 1.5em;
   background-color: white;
   border-radius: 7px;
+  border-style: none;
   font-size: 1.2rem;
   transition: background-color 0.3s ease-in-out 0s;
   border-color: #cca66d;
@@ -52,6 +53,9 @@
   background-color: transparent;
   align-self: center;
   margin-top: auto;
+}
+.cardBtn:hover {
+  opacity: 80%;
 }
 .cardBtn:hover {
   background-color: #cca66d;
