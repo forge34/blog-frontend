@@ -30,23 +30,27 @@ function CreatePost({}) {
     <form onSubmit={handleSubmit} id={styles.postForm}>
       <div className={styles.container}>
         <TextInput name={"title"} label={"Post title"}></TextInput>{" "}
-        <label htmlFor={styles.textArea} style={{ margin: "0.5em 0" }}>
+        <label htmlFor={"textArea"} style={{ margin: "0.5em 0" }}>
           Post body
         </label>
-        <MDEditor
-          style={{ margin: "0.7em 0" }}
-          height="90%"
-          value={text}
-          onChange={setText}
-          textareaProps={{
-            form: styles.postForm,
-            id: styles.textArea,
-            name: "body",
-          }}
-          previewOptions={{
-            rehypePlugins: [[rehypeSanitize]],
-          }}
-        />
+        <div data-color-Mode="light" className={styles.editor}>
+          <MDEditor
+            style={{ margin: "0.7em 0" }}
+            height="90%"
+            value={text}
+            onChange={setText}
+            textareaProps={{
+              form: styles.postForm,
+              id: "textArea",
+              name: "body",
+              maxLength: 10000,
+              placeholder: "Enter post body",
+            }}
+            previewOptions={{
+              rehypePlugins: [[rehypeSanitize]],
+            }}
+          />
+        </div>
         <button className={styles.btn}>Submit post</button>
       </div>
     </form>

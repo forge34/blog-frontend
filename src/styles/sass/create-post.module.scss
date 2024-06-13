@@ -12,11 +12,12 @@
   height: 100%;
 }
 
-#textArea {
-}
-
 .btn {
   @include utils.btn;
   @include utils.btn-transition(variables.$primary);
   align-self: center;
+}
+
+.editor {
+  height: 100%;
 }

@@ -12,6 +12,7 @@
     "sassw": "sass --watch ./src/styles/sass:./src/styles/css"
   },
   "dependencies": {
+    "@uiw/react-markdown-preview": "^5.1.1",
     "@uiw/react-md-editor": "^4.0.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
