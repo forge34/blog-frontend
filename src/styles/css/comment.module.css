@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  width: 200px;
+  text-wrap: wrap;
+}
+
+.infoContainer {
+  display: flex;
+  align-content: center;
+}
+.infoContainer :nth-child(1) {
+  margin-right: 0.25em;
+}
+
+/*# sourceMappingURL=comment.module.css.map */

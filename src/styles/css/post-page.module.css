@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentFormContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: max-content;
+}
+
+#textarea {
+  width: 300px;
+  height: 200px;
+}
+
+.commentBtn {
+  padding: 0.5em 1em;
+  background-color: white;
+  border-radius: 7px;
+  border-style: none;
+  font-size: 1rem;
+  margin-top: 1.5em;
+  background-color: #514ec1;
+  align-self: center;
+}
+.commentBtn:hover {
+  opacity: 80%;
+}
+
+/*# sourceMappingURL=post-page.module.css.map */

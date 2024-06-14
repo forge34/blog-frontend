@@ -4,7 +4,6 @@ import styles from "../../styles/css/post.module.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 
 function Post({ title, body, author, date }) {
-  console.log(body);
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{title}</h1>
