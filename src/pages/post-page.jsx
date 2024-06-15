@@ -24,11 +24,10 @@ function PostPage() {
       },
     };
 
-    const req = await fetch(
+    await fetch(
       "http://localhost:3000/api/posts/" + data._id + "/comments",
       options,
     );
-    const res = await req.json();
   }
   return (
     <div className={styles.container}>
@@ -41,7 +40,9 @@ function PostPage() {
 
       <form onSubmit={submitComment} id="commentForm">
         <div className={styles.commentFormContainer}>
+          <h1>Comments ({data.comments.length})</h1>
           <textarea
+            placeholder="Comment on post"
             name="body"
             id={styles.textarea}
             form="commentForm"

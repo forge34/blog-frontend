@@ -20,3 +20,8 @@
     background-color: $color;
   }
 }
+
+@mixin bottom-border($width: 1px) {
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}

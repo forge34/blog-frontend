@@ -1,20 +1,39 @@
 .container {
   display: flex;
   flex-direction: column;
-  padding: 1em;
-  border-style: solid;
-  border-width: 1px;
+  padding: 1em 0;
   border-color: gray;
-  width: 200px;
   text-wrap: wrap;
+}
+
+.author {
+  font-size: 1.1rem;
+}
+
+.time {
+  font-weight: 300;
+  font-size: small;
 }
 
 .infoContainer {
   display: flex;
   align-content: center;
+  margin-bottom: 0.4em;
 }
 .infoContainer :nth-child(1) {
-  margin-right: 0.25em;
+  margin-right: 0.55em;
+}
+
+.body {
+  font-size: 1.3rem;
+}
+
+.bottomBar {
+  margin-top: 0.75em;
+  display: flex;
+}
+.bottomBar img {
+  margin-right: 0.3em;
 }
 
 /*# sourceMappingURL=comment.module.css.map */

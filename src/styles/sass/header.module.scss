@@ -4,7 +4,13 @@
 .container {
   display: flex;
   padding: 0.75em 0.25em;
+  background-color: white;
+  align-content: flex-start;
+  border-style: solid;
+  border-width: 0 0 1px 0;
 
+
+  flex-wrap: wrap;
   &:not(:nth-child(1)) {
     color: variables.$text;
   }
@@ -17,6 +23,10 @@
     text-decoration: none;
     color: inherit;
   }
+}
+
+.title {
+  font-weight: 400;
 }
 
 .search {
@@ -47,5 +57,9 @@
 .logout {
   @include utils.btn;
   @include utils.btn-transition(variables.$secondary);
-  margin-left: 0.5em;
+  margin: 0 0.5em;
+}
+
+.avatar {
+  align-content: center;
 }

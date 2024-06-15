@@ -16,9 +16,9 @@ function PostCard({ title, id, body, author, date = "2/4/2024" }) {
         </div>
         <h2>{title}</h2>
 
-        <p className={styles.cardText}>
-          {body.split(" ").length > 150 ? body.substring(0, 150) : body}
-        </p>
+        {/* <p className={styles.cardText}> */}
+        {/*   {body.split(" ").length > 150 ? body.substring(0, 150) : body} */}
+        {/* </p> */}
         <button
           onClick={() => {
             navigate("posts/" + id);

@@ -6,7 +6,15 @@ function AllPosts() {
   const data = useLoaderData();
 
   return (
-    <>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "center",
+        flexWrap: "wrap",
+      }}
+    >
       {data.map((e) => {
         return (
           <PostLink
@@ -17,7 +25,7 @@ function AllPosts() {
           ></PostLink>
         );
       })}
-    </>
+    </div>
   );
 }
 

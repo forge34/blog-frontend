@@ -1,11 +1,31 @@
 .container {
   display: flex;
-  padding: 2em;
   flex-direction: column;
+  background-color: white;
+  padding: 1em;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+
+.info {
+  display: flex;
+}
+.info address {
+  font-size: 1.1rem;
+}
+.info time {
+  font-weight: 200;
+  font-size: small;
+}
+.info :nth-child(1) {
+  margin-right: 0.5em;
 }
 
 .title {
-  margin-bottom: 1.5em;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  font-size: 3.5rem;
+  margin-bottom: 0.5em;
 }
 
 .markdown > * {

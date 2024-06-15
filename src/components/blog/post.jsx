@@ -6,11 +6,11 @@ import MarkdownPreview from "@uiw/react-markdown-preview";
 function Post({ title, body, author, date }) {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{title}</h1>
       <div className={styles.info}>
-        <p>{author}</p>
-        <p>{date}</p>
+        <address>{author}</address>
+        <time>{date}</time>
       </div>
+      <h1 className={styles.title}>{title}</h1>
       <div data-color-mode="light" className={styles.markdownPreview}>
         <MarkdownPreview source={body}></MarkdownPreview>
       </div>

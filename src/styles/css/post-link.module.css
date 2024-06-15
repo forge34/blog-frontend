@@ -2,13 +2,33 @@
   display: flex;
   background-color: white;
   padding: 0.5em;
-  margin: 0.1em 0;
+  margin: 0.5em 0;
   border-style: solid;
   border-color: gray;
   border-width: 1px;
+  width: 50%;
+  border-radius: 12px;
 }
 .container h3 {
+  margin-top: 0.2em;
   font-size: x-large;
+}
+
+.img {
+  flex: 1 1 0px;
+}
+.img img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.right {
+  flex: 1 1 0px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  padding: 0.2em;
 }
 
 .info {
@@ -31,7 +51,7 @@
   border-style: solid;
   border-width: 1px;
   background-color: transparent;
-  margin-left: auto;
+  margin-top: auto;
 }
 .btn:hover {
   opacity: 80%;
