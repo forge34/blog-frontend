@@ -14,17 +14,18 @@ function LoginForm() {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),
+      credentials: "include",
       headers: {
         "Content-Type": "Application/json",
       },
     };
 
     const req = await fetch("http://localhost:3000/api/login", options);
-    const res = await req.json();
+    // const res = await req.json();
 
-    // console.log(res.userId,res.token)
-    localStorage.setItem("userId", res.userId);
-    localStorage.setItem("jwt", res.token);
+    // // console.log(res.userId,res.token)
+    // localStorage.setItem("userId", res.userId);
+    // localStorage.setItem("jwt", res.token);
 
     navigate("/");
   }

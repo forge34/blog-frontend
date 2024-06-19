@@ -23,7 +23,7 @@ function SignupForm({}) {
 
     const res = await req.json();
     console.log(res);
-    // navigate("/");
+    navigate("/");
   }
 
   return (

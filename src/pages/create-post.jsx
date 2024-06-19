@@ -14,12 +14,12 @@ function CreatePost({}) {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),
+      credentials: "include",
       headers: {
         "Content-Type": "Application/json",
-        Authorization: "Bearer " + localStorage.getItem("jwt"),
+        // Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
-    console.log(data);
     const req = await fetch("http://localhost:3000/api/posts", options);
     const res = await req.json();
 
