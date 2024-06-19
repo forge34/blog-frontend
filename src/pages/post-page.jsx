@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 import Post from "../components/blog/post";
 import styles from "../styles/css/post-page.module.css";
 import Comemnt from "../components/blog/comment";
@@ -7,7 +7,7 @@ import Comemnt from "../components/blog/comment";
 function PostPage() {
   const data = useLoaderData();
   const author = data.author.username;
-  console.log(data);
+  const auth = useOutletContext();
 
   async function submitComment(e) {
     e.preventDefault();
@@ -37,23 +37,25 @@ function PostPage() {
         body={data.body}
         date={data.date}
       ></Post>
+      {auth.logged ? (
+        <form onSubmit={submitComment} id="commentForm">
+          <div className={styles.commentFormContainer}>
+            <h1>Comments ({data.comments.length})</h1>
+            <textarea
+              placeholder="Comment on post"
+              name="body"
+              id={styles.textarea}
+              form="commentForm"
+            ></textarea>
 
-      <form onSubmit={submitComment} id="commentForm">
-        <div className={styles.commentFormContainer}>
-          <h1>Comments ({data.comments.length})</h1>
-          <textarea
-            placeholder="Comment on post"
-            name="body"
-            id={styles.textarea}
-            form="commentForm"
-          ></textarea>
-
-          <button className={styles.commentBtn} type="submit">
-            Add comment
-          </button>
-        </div>
-      </form>
-
+            <button className={styles.commentBtn} type="submit">
+              Add comment
+            </button>
+          </div>
+        </form>
+      ) : (
+        <h1>Only logged users can comment</h1>
+      )}
       <div className={styles.commentsContainer}>
         {data.comments.map((e) => {
           return (

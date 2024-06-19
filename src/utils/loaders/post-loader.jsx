@@ -2,7 +2,7 @@ const fetchPostAll = () => {
   const data = fetch("http://localhost:3000/api/posts", {
     mode: "cors",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   });
 
@@ -13,7 +13,7 @@ const fetchPostOne = ({ params }) => {
   const data = fetch(`http://localhost:3000/api/posts/${params.postid}`, {
     mode: "cors",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   });
 

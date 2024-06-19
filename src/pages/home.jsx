@@ -3,14 +3,15 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import PostCard from "../components/blog/post-card";
 import { useLoaderData } from "react-router-dom";
 import styles from "../styles/css/home.module.css";
+import useAuth from "../utils/use-auth";
 
 export default function Home() {
   const location = useLocation();
   const data = useLoaderData();
-
+  const auth = useAuth();
   return (
     <>
-      <Header></Header>
+      <Header user={auth.user} loggedIn={auth.logged}></Header>
       {location.pathname === "/home" ? (
         <div className={styles.container}>
           <Link to="posts" className={styles.title} relative="path">
@@ -34,7 +35,7 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <Outlet></Outlet>
+        <Outlet context={auth}></Outlet>
       )}
     </>
   );

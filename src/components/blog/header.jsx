@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/css/header.module.css";
 import Avvvatars from "avvvatars-react";
+import propTypes from "prop-types";
 
-function Header({}) {
+function Header({ user, loggedIn }) {
+  console.log(user);
   return (
     <div className={styles.container}>
-      {localStorage.getItem("jwt") ? (
+      {loggedIn ? (
         <>
           <h2 className={styles.title}>Forge Blog API</h2>
           <input
@@ -17,15 +19,17 @@ function Header({}) {
           <Link className={styles.home} to="/home">
             <p>Home</p>
           </Link>
-          <Link className={styles.createPost} to="posts/create">
-            <p>Create Post</p>
-          </Link>
+          {( user.role === "EDITOR" || "ADMIN" ) && (
+            <Link className={styles.createPost} to="posts/create">
+              <p>Create Post</p>
+            </Link>
+          )}
 
           {/* <Link className={styles.logout} to="/logout"> */}
           {/*   <h3>Logout</h3> */}
           {/* </Link> */}
           <span className={styles.avatar}>
-            <Avvvatars displayValue="FE" size={34}></Avvvatars>
+            <Avvvatars value={user.username} size={34}></Avvvatars>
           </span>
         </>
       ) : (
@@ -48,6 +52,9 @@ function Header({}) {
   );
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  user: propTypes.object,
+  loggedIn: propTypes.bool,
+};
 
 export default Header;
