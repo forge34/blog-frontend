@@ -5,7 +5,6 @@ import Avvvatars from "avvvatars-react";
 import propTypes from "prop-types";
 
 function Header({ user, loggedIn }) {
-  console.log(user);
   return (
     <div className={styles.container}>
       {loggedIn ? (

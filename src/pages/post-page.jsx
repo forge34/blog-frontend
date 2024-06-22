@@ -6,9 +6,7 @@ import Comemnt from "../components/blog/comment";
 
 function PostPage() {
   const data = useLoaderData();
-  const author = data.author.username;
   const auth = useOutletContext();
-
   async function submitComment(e) {
     e.preventDefault();
 
@@ -18,9 +16,9 @@ function PostPage() {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(formEntry),
+      credentials: "include",
       headers: {
         "Content-Type": "Application/json",
-        Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
 
@@ -62,7 +60,7 @@ function PostPage() {
             <Comemnt
               key={e._id}
               body={e.body}
-              author={author}
+              author={e.author.username}
               date={e.comment_date}
             ></Comemnt>
           );
