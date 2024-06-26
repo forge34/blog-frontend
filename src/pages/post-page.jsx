@@ -23,8 +23,8 @@ function PostPage() {
     };
 
     await fetch(
-      "http://localhost:3000/api/posts/" + data._id + "/comments",
-      options,
+      `${import.meta.env.VITE_API_URL}/api/posts/` + data._id + "/comments",
+      options
     );
   }
   return (

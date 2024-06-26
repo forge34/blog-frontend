@@ -64,7 +64,7 @@ describe("PostLink component test", () => {
 
     expect(screen.getByRole("link")).toHaveProperty(
       "href",
-      "http://localhost:3000/testid"
+      "https://blog-backend-production-8991.up.railway.app//testid"
     );
   });
 });

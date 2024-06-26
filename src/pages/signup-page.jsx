@@ -12,7 +12,7 @@ function SignupForm({}) {
 
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    const req = await fetch("http://localhost:3000/api/signup", {
+    const req = await fetch(`${import.meta.env.VITE_API_URL}/api/signup`, {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(data),

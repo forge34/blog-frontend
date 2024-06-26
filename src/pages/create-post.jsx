@@ -20,7 +20,10 @@ function CreatePost({}) {
         // Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
-    const req = await fetch("http://localhost:3000/api/posts", options);
+    const req = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/posts`,
+      options
+    );
     const res = await req.json();
 
     console.log(res);
