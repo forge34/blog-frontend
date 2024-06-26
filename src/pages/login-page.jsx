@@ -20,7 +20,10 @@ function LoginForm() {
       },
     };
 
-    const req = await fetch("http://localhost:3000/api/login", options);
+    const req = await fetch(
+      "https://blog-backend-production-8991.up.railway.app/api/login",
+      options
+    );
     // const res = await req.json();
 
     // // console.log(res.userId,res.token)

@@ -12,14 +12,17 @@ function SignupForm({}) {
 
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    const req = await fetch("http://localhost:3000/api/signup", {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const req = await fetch(
+      "https://blog-backend-production-8991.up.railway.app/api/signup",
+      {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const res = await req.json();
     console.log(res);

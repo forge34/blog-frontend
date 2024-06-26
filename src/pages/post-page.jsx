@@ -23,8 +23,10 @@ function PostPage() {
     };
 
     await fetch(
-      "http://localhost:3000/api/posts/" + data._id + "/comments",
-      options,
+      "https://blog-backend-production-8991.up.railway.app/api/posts/" +
+        data._id +
+        "/comments",
+      options
     );
   }
   return (

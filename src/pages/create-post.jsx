@@ -20,7 +20,10 @@ function CreatePost({}) {
         // Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
-    const req = await fetch("http://localhost:3000/api/posts", options);
+    const req = await fetch(
+      "https://blog-backend-production-8991.up.railway.app/api/posts",
+      options
+    );
     const res = await req.json();
 
     console.log(res);
