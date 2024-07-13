@@ -1,8 +1,18 @@
-# React + Vite
+# Blog app project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+this is one of the projects in the NodeJS course in The odin project curriculum .
 
-Currently, two official plugins are available:
+--- 
+[Backend API repo](https://github.com/forge34/blog-backend)\
+[CMS repo](https://github.com/forge34/blog-cms)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+--- 
+### Features
+- users can create posts and format them using markdown
+- users can comment on posts
+- users can edit / delete their posts using the CMS website
+
+---
+### TODO 
+- host the project
+- add screenshots to README
