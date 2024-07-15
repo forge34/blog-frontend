@@ -1,14 +1,17 @@
 import Header from "../components/blog/header";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Await, Link, Outlet, useLocation } from "react-router-dom";
 import PostCard from "../components/blog/post-card";
 import { useLoaderData } from "react-router-dom";
 import styles from "../styles/css/home.module.css";
 import useAuth from "../utils/use-auth";
+import { Suspense } from "react";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function Home() {
   const location = useLocation();
   const data = useLoaderData();
   const auth = useAuth();
+
   return (
     <>
       <Header user={auth.user} loggedIn={auth.logged}></Header>
@@ -17,22 +20,40 @@ export default function Home() {
           <Link to="posts" className={styles.title} relative="path">
             See all posts
           </Link>
-          <div className={styles.cardContainer}>
-            {data.map((e, i) => {
-              return (
-                i < 3 && (
-                  <PostCard
-                    title={e.title}
-                    id={e._id}
-                    author={e.author.username}
-                    key={e._id}
-                    body={e.body}
-                    date={e.date}
-                  ></PostCard>
-                )
-              );
-            })}
-          </div>
+          <Suspense
+            fallback={
+              <InfinitySpin
+                visible={true}
+                width="580"
+                color="#514ec1"
+                ariaLabel="infinity-spin-loading"
+              ></InfinitySpin>
+            }
+          >
+            <Await
+              resolve={data.posts}
+              errorElement={<p>Loading failed ....</p>}
+            >
+              <div className={styles.cardContainer}>
+                {(posts) =>
+                  posts.map((e, i) => {
+                    return (
+                      i < 3 && (
+                        <PostCard
+                          title={e.title}
+                          id={e._id}
+                          author={e.author.username}
+                          key={e._id}
+                          body={e.body}
+                          date={e.date}
+                        ></PostCard>
+                      )
+                    );
+                  })
+                }
+              </div>
+            </Await>
+          </Suspense>
         </div>
       ) : (
         <Outlet context={auth}></Outlet>

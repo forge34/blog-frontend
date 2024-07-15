@@ -9,7 +9,7 @@ function Header({ user, loggedIn }) {
     <div className={styles.container}>
       {loggedIn ? (
         <>
-          <h2 className={styles.title}>Forge Blog API</h2>
+          <h1 className={styles.title}>Forge Blog</h1>
           <input
             type="search"
             placeholder="Search..."
@@ -18,22 +18,19 @@ function Header({ user, loggedIn }) {
           <Link className={styles.home} to="/home">
             <p>Home</p>
           </Link>
-          {( user.role === "EDITOR" || "ADMIN" ) && (
+          {(user.role === "EDITOR" || "ADMIN") && (
             <Link className={styles.createPost} to="posts/create">
               <p>Create Post</p>
             </Link>
           )}
 
-          {/* <Link className={styles.logout} to="/logout"> */}
-          {/*   <h3>Logout</h3> */}
-          {/* </Link> */}
           <span className={styles.avatar}>
             <Avvvatars value={user.username} size={34}></Avvvatars>
           </span>
         </>
       ) : (
         <>
-          <h1>Forge Blog </h1>
+          <h1 className={styles.title}>Forge Blog </h1>
           <input
             type="search"
             className={styles.search}

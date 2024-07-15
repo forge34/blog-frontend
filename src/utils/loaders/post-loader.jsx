@@ -1,12 +1,11 @@
-const fetchPostAll = () => {
+import { defer } from "react-router-dom";
+
+const fetchPostAll = async () => {
   const data = fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
     mode: "cors",
-    headers: {
-      // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-    },
   });
 
-  return data;
+  return defer({ posts: data });
 };
 
 const fetchPostOne = ({ params }) => {
@@ -14,13 +13,10 @@ const fetchPostOne = ({ params }) => {
     `${import.meta.env.VITE_API_URL}/api/posts/${params.postid}`,
     {
       mode: "cors",
-      headers: {
-        // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
-    }
+    },
   );
 
-  return data;
+  return defer({ data });
 };
 
 export { fetchPostOne, fetchPostAll };

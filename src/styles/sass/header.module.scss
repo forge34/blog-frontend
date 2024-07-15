@@ -9,6 +9,9 @@
   border-style: solid;
   border-width: 0 0 1px 0;
 
+  :not(h1) {
+    font-size: 1rem;
+  }
 
   flex-wrap: wrap;
   &:not(:nth-child(1)) {
@@ -23,10 +26,6 @@
     text-decoration: none;
     color: inherit;
   }
-}
-
-.title {
-  font-weight: 400;
 }
 
 .search {

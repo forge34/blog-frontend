@@ -7,6 +7,9 @@
   border-width: 0 0 1px 0;
   flex-wrap: wrap;
 }
+.container :not(h1) {
+  font-size: 1rem;
+}
 .container:not(:nth-child(1)) {
   color: #070510;
 }
@@ -16,10 +19,6 @@
 .container a {
   text-decoration: none;
   color: inherit;
-}
-
-.title {
-  font-weight: 400;
 }
 
 .search {
