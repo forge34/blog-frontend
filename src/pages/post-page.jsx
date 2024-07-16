@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import React, { Suspense, useState } from "react";
+import {
+  Await,
+  useAsyncValue,
+  useLoaderData,
+  useOutletContext,
+} from "react-router-dom";
 import Post from "../components/blog/post";
 import styles from "../styles/css/post-page.module.css";
 import Comemnt from "../components/blog/comment";
+import { InfinitySpin } from "react-loader-spinner";
+import propTypes from "prop-types";
 
-function PostPage() {
-  const data = useLoaderData();
-  const auth = useOutletContext();
+PostData.propTypes = {
+  auth: propTypes.object,
+};
+
+function PostData({ auth }) {
+  const data = useAsyncValue();
   async function submitComment(e) {
     e.preventDefault();
 
@@ -24,11 +34,11 @@ function PostPage() {
 
     await fetch(
       `${import.meta.env.VITE_API_URL}/api/posts/` + data._id + "/comments",
-      options
+      options,
     );
   }
   return (
-    <div className={styles.container}>
+    <>
       <Post
         title={data.title}
         author={data.author.username}
@@ -66,6 +76,30 @@ function PostPage() {
           );
         })}
       </div>
+    </>
+  );
+}
+
+function PostPage() {
+  const data = useLoaderData();
+  const auth = useOutletContext();
+
+  return (
+    <div className={styles.container}>
+      <Suspense
+        fallback={
+          <InfinitySpin
+            visible={true}
+            width="580"
+            color="#514ec1"
+            ariaLabel="infinity-spin-loading"
+          />
+        }
+      >
+        <Await resolve={data.post}>
+          <PostData auth={auth}></PostData>
+        </Await>
+      </Suspense>
     </div>
   );
 }
