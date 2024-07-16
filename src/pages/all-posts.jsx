@@ -1,7 +1,25 @@
 import React, { Suspense } from "react";
-import { Await, useLoaderData } from "react-router-dom";
+import { Await, useAsyncValue, useLoaderData } from "react-router-dom";
 import PostLink from "../components/blog/post-link";
 import { InfinitySpin } from "react-loader-spinner";
+
+function PostData() {
+  const posts = useAsyncValue();
+
+  return (
+    <>
+      {posts.map((e) => {
+        <PostLink
+          title={e.title}
+          id={e._id}
+          author={e.author.username}
+          key={e._id}
+        ></PostLink>;
+      })}
+    </>
+  );
+}
+
 function AllPosts() {
   const data = useLoaderData();
 
@@ -22,22 +40,13 @@ function AllPosts() {
             width="580"
             color="#514ec1"
             ariaLabel="infinity-spin-loading"
-          ></InfinitySpin>
+          />
         }
       >
         <Await resolve={data.posts} errorElement={<p>Loading failed ....</p>}>
-          {(posts) =>
-            posts.map((e) => {
-              return (
-                <PostLink
-                  title={e.title}
-                  id={e._id}
-                  author={e.author.username}
-                  key={e._id}
-                ></PostLink>
-              );
-            })
-          }
+          <>
+            <PostData></PostData>
+          </>
         </Await>
       </Suspense>
     </div>

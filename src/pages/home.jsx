@@ -1,5 +1,11 @@
 import Header from "../components/blog/header";
-import { Await, Link, Outlet, useLocation } from "react-router-dom";
+import {
+  Await,
+  Link,
+  Outlet,
+  useAsyncValue,
+  useLocation,
+} from "react-router-dom";
 import PostCard from "../components/blog/post-card";
 import { useLoaderData } from "react-router-dom";
 import styles from "../styles/css/home.module.css";
@@ -35,22 +41,7 @@ export default function Home() {
               errorElement={<p>Loading failed ....</p>}
             >
               <div className={styles.cardContainer}>
-                {(posts) =>
-                  posts.map((e, i) => {
-                    return (
-                      i < 3 && (
-                        <PostCard
-                          title={e.title}
-                          id={e._id}
-                          author={e.author.username}
-                          key={e._id}
-                          body={e.body}
-                          date={e.date}
-                        ></PostCard>
-                      )
-                    );
-                  })
-                }
+                <PostData></PostData>
               </div>
             </Await>
           </Suspense>
@@ -58,6 +49,31 @@ export default function Home() {
       ) : (
         <Outlet context={auth}></Outlet>
       )}
+    </>
+  );
+}
+
+function PostData() {
+  const posts = useAsyncValue();
+  console.log(posts);
+  return (
+    <>
+      {posts.map((e, i) => {
+        {
+          return (
+            i < 3 && (
+              <PostCard
+                title={e.title}
+                id={e._id}
+                author={e.author.username}
+                key={e._id}
+                body={e.body}
+                date={e.date}
+              ></PostCard>
+            )
+          );
+        }
+      })}
     </>
   );
 }

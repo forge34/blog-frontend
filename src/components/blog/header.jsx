@@ -4,7 +4,7 @@ import styles from "../../styles/css/header.module.css";
 import Avvvatars from "avvvatars-react";
 import propTypes from "prop-types";
 
-function Header({ user, loggedIn }) {
+function Header({ user = {}, loggedIn = false }) {
   return (
     <div className={styles.container}>
       {loggedIn ? (
