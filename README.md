@@ -4,6 +4,9 @@ this is one of the projects in the NodeJS course in The odin project curriculum 
 
 #### Note : i plan to rewrite the project again in the future with some fixes to existing bugs and some other improvments
 
+---
+### [Live demo](https://forge-blog-frontend.netlify.app/)
+
 --- 
 [Backend API repo](https://github.com/forge34/blog-backend)\
 [CMS repo](https://github.com/forge34/blog-cms)
@@ -22,7 +25,3 @@ this is one of the projects in the NodeJS course in The odin project curriculum 
 - users can comment on posts
 - users can edit / delete their posts using the CMS website
 
----
-### TODO 
-- host the project
-- add screenshots to README
