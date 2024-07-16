@@ -5,16 +5,18 @@ import { InfinitySpin } from "react-loader-spinner";
 
 function PostData() {
   const posts = useAsyncValue();
-
+  console.log(posts);
   return (
     <>
       {posts.map((e) => {
-        <PostLink
-          title={e.title}
-          id={e._id}
-          author={e.author.username}
-          key={e._id}
-        ></PostLink>;
+        return (
+          <PostLink
+            title={e.title}
+            id={e._id}
+            author={e.author.username}
+            key={e._id}
+          ></PostLink>
+        );
       })}
     </>
   );
@@ -37,16 +39,13 @@ function AllPosts() {
         fallback={
           <InfinitySpin
             visible={true}
-            width="580"
-            color="#514ec1"
+            width="280"
             ariaLabel="infinity-spin-loading"
           />
         }
       >
         <Await resolve={data.posts} errorElement={<p>Loading failed ....</p>}>
-          <>
-            <PostData></PostData>
-          </>
+          <PostData></PostData>
         </Await>
       </Suspense>
     </div>

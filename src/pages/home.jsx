@@ -20,34 +20,30 @@ export default function Home() {
 
   return (
     <>
-      <Header user={auth.user} loggedIn={auth.logged}></Header>
       {location.pathname === "/home" ? (
-        <div className={styles.container}>
-          <Link to="posts" className={styles.title} relative="path">
-            See all posts
-          </Link>
-          <Suspense
-            fallback={
-              <InfinitySpin
-                visible={true}
-                width="580"
-                color="#514ec1"
-                ariaLabel="infinity-spin-loading"
-              ></InfinitySpin>
-            }
-          >
+        <>
+          <Suspense fallback={<InfinitySpin width="240" color="red"></InfinitySpin>}>
             <Await
               resolve={data.posts}
               errorElement={<p>Loading failed ....</p>}
             >
-              <div className={styles.cardContainer}>
-                <PostData></PostData>
+              <Header user={auth.user} loggedIn={auth.logged}></Header>
+              <div className={styles.container}>
+                <Link to="posts" className={styles.title} relative="path">
+                  See all posts
+                </Link>
+                <div className={styles.cardContainer}>
+                  <PostData></PostData>
+                </div>
               </div>
             </Await>
           </Suspense>
-        </div>
+        </>
       ) : (
-        <Outlet context={auth}></Outlet>
+        <>
+          <Header user={auth.user} loggedIn={auth.logged}></Header>
+          <Outlet context={auth}></Outlet>
+        </>
       )}
     </>
   );

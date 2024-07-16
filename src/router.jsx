@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
     element: <Home></Home>,
     loader: PostLoader.fetchPostAll,
     shouldRevalidate: ({ currentUrl }) => {
-      return currentUrl.pathname === "/home";
+      return currentUrl.pathname === "home";
     },
     children: [
       {
