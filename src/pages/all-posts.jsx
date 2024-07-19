@@ -1,11 +1,15 @@
 import React, { Suspense } from "react";
-import { Await, useAsyncValue, useLoaderData } from "react-router-dom";
+import {
+  Await,
+  useAsyncValue,
+  useLoaderData,
+  useRouteLoaderData,
+} from "react-router-dom";
 import PostLink from "../components/blog/post-link";
 import { InfinitySpin } from "react-loader-spinner";
 
 function PostData() {
   const posts = useAsyncValue();
-  console.log(posts);
   return (
     <>
       {posts.map((e) => {
@@ -23,7 +27,7 @@ function PostData() {
 }
 
 function AllPosts() {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("home");
 
   return (
     <div
