@@ -3,34 +3,13 @@ import styles from "../styles/css/create-post.module.css";
 import { TextInput } from "../components/form-controls/text-input";
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
+import { Form } from "react-router-dom";
 
 function CreatePost({}) {
   const [text, setText] = useState("");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target).entries());
-    const options = {
-      method: "POST",
-      mode: "cors",
-      body: JSON.stringify(data),
-      credentials: "include",
-      headers: {
-        "Content-Type": "Application/json",
-        // Authorization: "Bearer " + localStorage.getItem("jwt"),
-      },
-    };
-    const req = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/posts`,
-      options
-    );
-    const res = await req.json();
-
-    console.log(res);
-  }
-
   return (
-    <form onSubmit={handleSubmit} id={styles.postForm}>
+    <Form method="POST" id={styles.postForm}>
       <div className={styles.container}>
         <TextInput name={"title"} label={"Post title"}></TextInput>{" "}
         <label htmlFor={"textArea"} style={{ margin: "0.5em 0" }}>
@@ -56,7 +35,7 @@ function CreatePost({}) {
         </div>
         <button className={styles.btn}>Submit post</button>
       </div>
-    </form>
+    </Form>
   );
 }
 

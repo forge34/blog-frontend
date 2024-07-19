@@ -1,11 +1,10 @@
 import React, { Suspense } from "react";
-import { Await, useAsyncValue, useLoaderData } from "react-router-dom";
+import { Await, useAsyncValue, useRouteLoaderData } from "react-router-dom";
 import PostLink from "../components/blog/post-link";
-import { InfinitySpin } from "react-loader-spinner";
+import SpinnerWrapper from "../components/blog/spinner.jsx";
 
 function PostData() {
   const posts = useAsyncValue();
-  console.log(posts);
   return (
     <>
       {posts.map((e) => {
@@ -23,7 +22,7 @@ function PostData() {
 }
 
 function AllPosts() {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("home");
 
   return (
     <div
@@ -37,11 +36,9 @@ function AllPosts() {
     >
       <Suspense
         fallback={
-          <InfinitySpin
-            visible={true}
-            width="280"
-            ariaLabel="infinity-spin-loading"
-          />
+          <SpinnerWrapper>
+            <l-chaotic-orbit size={160} />
+          </SpinnerWrapper>
         }
       >
         <Await resolve={data.posts} errorElement={<p>Loading failed ....</p>}>

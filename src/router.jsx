@@ -7,6 +7,7 @@ import AllPosts from "./pages/all-posts";
 import PostPage from "./pages/post-page";
 import * as PostLoader from "./utils/loaders/post-loader";
 import CreatePost from "./pages/create-post";
+import { createPost } from "./utils/actions";
 
 const routes = createBrowserRouter([
   {
@@ -28,18 +29,16 @@ const routes = createBrowserRouter([
     path: "/home",
     element: <Home></Home>,
     loader: PostLoader.fetchPostAll,
-    shouldRevalidate: ({ currentUrl }) => {
-      return currentUrl.pathname === "home";
-    },
+    id: "home",
     children: [
       {
         path: "posts",
-        loader: PostLoader.fetchPostAll,
         element: <AllPosts></AllPosts>,
       },
       {
         path: "posts/create",
         element: <CreatePost></CreatePost>,
+        action: createPost,
       },
       {
         path: "posts/:postid",

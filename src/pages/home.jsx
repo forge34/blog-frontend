@@ -11,7 +11,8 @@ import { useLoaderData } from "react-router-dom";
 import styles from "../styles/css/home.module.css";
 import useAuth from "../utils/use-auth";
 import { Suspense } from "react";
-import { InfinitySpin } from "react-loader-spinner";
+import "ldrs/chaoticOrbit";
+import SpinnerWrapper from "../components/blog/spinner.jsx";
 
 export default function Home() {
   const location = useLocation();
@@ -22,7 +23,13 @@ export default function Home() {
     <>
       {location.pathname === "/home" ? (
         <>
-          <Suspense fallback={<InfinitySpin width="240" color="red"></InfinitySpin>}>
+          <Suspense
+            fallback={
+              <SpinnerWrapper>
+                <l-chaotic-orbit size={160} />
+              </SpinnerWrapper>
+            }
+          >
             <Await
               resolve={data.posts}
               errorElement={<p>Loading failed ....</p>}
@@ -51,7 +58,6 @@ export default function Home() {
 
 function PostData() {
   const posts = useAsyncValue();
-  console.log(posts);
   return (
     <>
       {posts.map((e, i) => {
