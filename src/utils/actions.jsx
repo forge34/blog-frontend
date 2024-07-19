@@ -14,7 +14,7 @@ async function createPost({  request }) {
     },
   };
 
-  fetch(`${import.meta.env.VITE_API_URL}/api/posts`, options);
+  await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, options);
 
   return redirect("/home");
 }
