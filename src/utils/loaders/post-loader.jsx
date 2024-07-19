@@ -1,22 +1,22 @@
 import { defer } from "react-router-dom";
 
-const fetchPostAll = async () => {
-  const data = await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
+const fetchPostAll = () => {
+  const data = fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
     mode: "cors",
   });
 
-  return defer({ posts: data.json() });
+  return defer({ posts: data.then((res) => res.json()) });
 };
 
-const fetchPostOne = async ({ params }) => {
-  const data = await fetch(
+const fetchPostOne = ({ params }) => {
+  const data = fetch(
     `${import.meta.env.VITE_API_URL}/api/posts/${params.postid}`,
     {
       mode: "cors",
     },
   );
 
-  return defer({ post: data.json() });
+  return defer({ post: data.then((res) => res.json()) });
 };
 
 export { fetchPostOne, fetchPostAll };

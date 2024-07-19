@@ -15,10 +15,10 @@
     "@uiw/react-markdown-preview": "^5.1.1",
     "@uiw/react-md-editor": "^4.0.4",
     "avvvatars-react": "^0.4.2",
+    "ldrs": "^1.0.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.23.0",
     "rehype-sanitize": "^6.0.0"
   },

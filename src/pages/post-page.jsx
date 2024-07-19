@@ -8,8 +8,8 @@ import {
 import Post from "../components/blog/post";
 import styles from "../styles/css/post-page.module.css";
 import Comemnt from "../components/blog/comment";
-import { InfinitySpin } from "react-loader-spinner";
 import propTypes from "prop-types";
+import SpinnerWrapper from "../components/blog/spinner.jsx";
 
 PostData.propTypes = {
   auth: propTypes.object,
@@ -88,12 +88,9 @@ function PostPage() {
     <div className={styles.container}>
       <Suspense
         fallback={
-          <InfinitySpin
-            visible={true}
-            width="580"
-            color="#514ec1"
-            ariaLabel="infinity-spin-loading"
-          />
+          <SpinnerWrapper>
+            <l-chaotic-orbit size={160} />
+          </SpinnerWrapper>
         }
       >
         <Await resolve={data.post}>
