@@ -3,9 +3,11 @@ import styles from "../styles/css/create-post.module.css";
 import { TextInput } from "../components/form-controls/text-input";
 import MDEditor from "@uiw/react-md-editor";
 import rehypeSanitize from "rehype-sanitize";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost({}) {
   const [text, setText] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -17,16 +19,12 @@ function CreatePost({}) {
       credentials: "include",
       headers: {
         "Content-Type": "Application/json",
-        // Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
     };
-    const req = await fetch(
-      `${import.meta.env.VITE_API_URL}/api/posts`,
-      options
-    );
-    const res = await req.json();
 
-    console.log(res);
+    await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, options);
+
+    navigate("/home");
   }
 
   return (
