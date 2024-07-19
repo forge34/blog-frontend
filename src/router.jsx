@@ -7,6 +7,7 @@ import AllPosts from "./pages/all-posts";
 import PostPage from "./pages/post-page";
 import * as PostLoader from "./utils/loaders/post-loader";
 import CreatePost from "./pages/create-post";
+import { createPost } from "./utils/actions";
 
 const routes = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ const routes = createBrowserRouter([
       {
         path: "posts/create",
         element: <CreatePost></CreatePost>,
+        action: createPost,
       },
       {
         path: "posts/:postid",
